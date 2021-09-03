@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bot</title>
+    <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <link rel="stylesheet" type="text/css" href="style.css">
+ </head>
+<body>
+<div class="container" id="content1">
+	<div class="bot">
+		<div class="user">
+			<img src="d.png" alt="DocBot">
+			<div class="info">
+				<h2>DocBot</h2>
+				<!--<p>online</p>-->
+			</div>
+		</div>
+		<div class="chat">
+			<div class="userchat">Hello, This is DocBot!</div>
+				<div class="userchat">How can I help you?
+						<div class="request">
+							<button id="information" onclick="info()">Looking for Information</button>
+							<button id="consult" onclick="consult()">Need to consult a doctor</button>
+						</div>
+					</div>
+					<div class="list">      	
+               </div>
+		</div>
+		<div class="input">
+			<input type="text" placeholder="Enter Message" id="txt">
+			<button class="btn" type="submit" onclick="send()">
+				<img src="send.png" alt="send">
+			</button>
+		</div>
+	</div>
+	<div class="chatbot">
+		<img src="doctor.png" alt="DocBot">
+	</div>
+</div>
+
+
+<!-- Disease Analysis -->
+
+<div class="container" id="content2" style="display: none;">
+	<div class="bot1">
+		<div class="user">
+			<img src="d.png" alt="DocBot">
+			<div class="info">
+				<h2>DocBot</h2>
+			</div>
+		</div>
+		<div class="chat">
+			<div class="row">
+				<div class="col-xs-6 col-md-6">
+			<div class="userchat">Please add your symptoms</div>
+					<div class="list1"> </div>
+		</div>
+	</div>
+</div>
+		<div class="input">
+			<input type="text" placeholder="Enter Message" id="txt1">
+			<button class="btn" type="submit" onclick="send1()">
+				<img src="send.png" alt="send">
+			</button>
+		</div>
+	</div>
+	<div class="chatbot">
+		<img src="doctor.png" alt="DocBot">				
+	</div>
+</div>
+
+   <script type="text/javascript" src="script.js"></script>
+   <script type="text/javascript">
+     function send(){
+     var msg = jQuery('#txt').val(); 
+     if(msg==''){
+     	alert('Please give your input');
+     }
+     else{
+     var msg = jQuery('#txt').val(); 
+     var input='<div class="mychat">'+msg+'</div>';
+     jQuery('.list').append(input);
+     jQuery('#txt').val('');
+     setTimeout(function(){
+     if(msg=='hi' || msg=='hello'){
+     	var input = '<div class="userchat">'+'Hello! Nice to have you here.'+'</div>';
+      jQuery(".list").append(input);
+      jQuery('.chat').scrollTop(jQuery('.chat')[0].scrollHeight);
+     }
+     else{
+     	var input = '<div class="userchat">'+'Sorry, Unable to fetch the details.'+'</div>';
+      jQuery(".list").append(input);
+      jQuery('.chat').scrollTop(jQuery('.chat')[0].scrollHeight);
+     }
+   },500 );
+   }
+     
+
+
+
+     /*if(msg)
+     {
+     	jQuery.ajax({
+     		url:'',                 
+
+     		//get bot message......
+     	
+     		success: function(result){
+          var input = '<div class="userchat">'+result+'</div>';
+          jQuery(".messages-list").append(input);
+          
+        }
+     	});
+     }*/
+   }
+
+
+     function send1(){
+     var msg = jQuery('#txt1').val(); 
+     if(msg==''){
+     	alert('Please give your input');
+     }
+     else{
+     var msg = jQuery('#txt1').val(); 
+     var input='<div class="mychat1">'+msg+'</div>';
+     jQuery('.list1').append(input);
+     jQuery('#txt1').val('');}
+     jQuery('.chat').scrollTop(jQuery('.chat')[0].scrollHeight);
+   }
+
+   </script>
+</body>
+</html>
